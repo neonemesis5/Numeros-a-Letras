@@ -10,7 +10,6 @@ import java.util.ArrayList;
 /**
  *
  * @author Nelson E
- * nel2044@hotmail.com
  */
 public class NumToLetra {
 
@@ -139,35 +138,420 @@ public class NumToLetra {
                     return getNum(Num.substring(0, 2)) + " MIL " + getNum(Num.substring(2, 5));
                 }
             case 6://<100000
+                /**
+                 * de la forma A00.000*
+                 */
                 if (Num.matches("[1-9][0][0][0][0][0]")) {//
                     return getNum(Num.substring(0, 3)) + " MIL";
                 }
-                if (Num.matches("[1-9][0-9][0-9][0][0][0]")) {//
-                    return getNum(Num.substring(0, 3)) + " MIL";
+                /**
+                 * DE LA FORMA A00.00Z
+                 */
+                if (Num.matches("[1-9][0][0][0][0][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(5, 6));
                 }
-                if (Num.matches("[1-9][0-9][0-9][0][0][1-9]")) {//
-                    return getNum(Num.substring(0, 3)) + " MIL "+getNum(Num.substring(5, 6));
-                }
-                if (Num.matches("[1-9][0-9][0-9][0][1-9][0]")) {//
-                    return getNum(Num.substring(0, 3)) + " MIL "+getNum(Num.substring(4, 6));
-                }
-                if (Num.matches("[1-9][0-9][0-9][0-9][1-9][0]")) {//
-                    return getNum(Num.substring(0, 3)) + " MIL "+getNum(Num.substring(3, 6));
-                }
-                if (Num.matches("[1-9][0-9][0-9][0-9][0][0]")) {//
-                    return getNum(Num.substring(0, 3)) + " MIL "+getNum(Num.substring(3, 6));
-                }
-              
-                if (Num.matches("[1-9][0][0][0][0-9][0-9]")) {//
+
+                /**
+                 * DE LA FORMA A00.0YZ
+                 */
+                if (Num.matches("[1-9][0][0][0][1-9][1-9]")) {//
                     return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(4, 6));
                 }
-                if (Num.matches("[1-9][0][0][0-9][0-9][0-9]")) {//
+                /**
+                 * DE LA FORMA A00.0Y0
+                 */
+                if (Num.matches("[1-9][0][0][0][1-9][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(4, 6));
+                }
+                /**
+                 * DE LA FORMA A00.X0Z
+                 */
+                if (Num.matches("[1-9][0][0][1-9][0][1-9]")) {//
                     return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
                 }
+                /**
+                 * DE LA FORMA A00.X00
+                 */
+                if (Num.matches("[1-9][0][0][1-9][0][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+                /**
+                 * DE LA FORMA A00.XYZ
+                 */
+                if (Num.matches("[1-9][0][0][1-9][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+                /**
+                 * DE LA FORMA A00.XY0
+                 */
+                if (Num.matches("[1-9][0][0][1-9][1-9][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+
+                /**
+                 * ****************************************************************************
+                 */
+                /**
+                 * de la forma AB0.000
+                 */
+                if (Num.matches("[1-9][0-9][0][0][0][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL";
+                }
+                /**
+                 * de la forma AB0.00Z
+                 */
+                if (Num.matches("[1-9][0-9][0][0][0][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(5, 6));
+                }
+                /**
+                 * de la forma AB0.0YZ
+                 */
+                if (Num.matches("[1-9][0-9][0][0][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(4, 6));
+                }
+                /**
+                 * de la forma AB0.0Y0
+                 */
+                if (Num.matches("[1-9][0-9][0][0][1-9][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(4, 6));
+                }
+
+                /**
+                 * de la forma AB0.X0Z
+                 */
+                if (Num.matches("[1-9][0-9][0][1-9][0][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+
+                /**
+                 * de la forma AB0.XYZ
+                 */
+                if (Num.matches("[1-9][0-9][0][1-9][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+                /**
+                 * de la forma AB0.XY0
+                 */
+                if (Num.matches("[1-9][0-9][0][1-9][1-9][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+
+                /**
+                 * de la forma AB0.X00
+                 */
+                if (Num.matches("[1-9][0-9][0][1-9][0][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+                /**
+                 * ****************************************************************************
+                 */
+                /**
+                 * de la forma A0C.000
+                 */
+                if (Num.matches("[1-9][0][0-9][0][0][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL";
+                }
+
+                /**
+                 * de la forma A0C.00Z
+                 */
+                if (Num.matches("[1-9][0][0-9][0][0][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(5, 6));
+                }
+
+                /**
+                 * de la forma A0C.0YZ
+                 */
                 if (Num.matches("[1-9][0][0-9][0][1-9][1-9]")) {//
                     return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(4, 6));
                 }
-               
+
+                /**
+                 * de la forma A0C.0Y0
+                 */
+                if (Num.matches("[1-9][0][0-9][0][1-9][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(4, 6));
+                }
+
+                /**
+                 * de la forma A0C.XYZ
+                 */
+                if (Num.matches("[1-9][0][0-9][1-9][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+
+                /**
+                 * de la forma A0C.XY0
+                 */
+                if (Num.matches("[1-9][0][0-9][1-9][1-9][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+
+                /**
+                 * de la forma A0C.X00
+                 */
+                if (Num.matches("[1-9][0][0-9][1-9][0][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+
+                /**
+                 * de la forma A0C.X0Z
+                 */
+                if (Num.matches("[1-9][0][0-9][1-9][0][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+                /**
+                 * ****************************************************************************
+                 */
+                /**
+                 * de la forma ABC.000
+                 */
+                if (Num.matches("[1-9][0-9][0-9][0][0][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL";
+                }
+                /**
+                 * de la forma ABC.00Z
+                 */
+                if (Num.matches("[1-9][0-9][0-9][0][0][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(5, 6));
+                }
+                /**
+                 * de la forma ABC.0YZ
+                 */
+                if (Num.matches("[1-9][0-9][0-9][0][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(4, 6));
+                }
+                /**
+                 * de la forma ABC.0Y0
+                 */
+                if (Num.matches("[1-9][0-9][0-9][0][1-9][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(4, 6));
+                }
+
+                /**
+                 * de la forma ABC.XY0
+                 */
+                if (Num.matches("[1-9][0-9][0-9][1-9][1-9][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+                /**
+                 * de la forma ABC.XYZ
+                 */
+                if (Num.matches("[1-9][0-9][0-9][1-9][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+                /**
+                 * de la forma ABC.X0Z
+                 */
+                if (Num.matches("[1-9][0-9][0-9][1-9][0][1-9]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+                /**
+                 * de la forma ABC.X00
+                 */
+                if (Num.matches("[1-9][0-9][0-9][1-9][0][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MIL " + getNum(Num.substring(3, 6));
+                }
+            case 7:
+                /**
+                 * de la forma A.000.000 CON A=1
+                 */
+                if (Num.matches("[1][0][0][0][0][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON";
+                }
+
+                /**
+                 * de la forma A.000.00Z CON A=1
+                 */
+                if (Num.matches("[1][0][0][0][0][0][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(6, 7));
+                }
+
+                /**
+                 * de la forma A.000.0YZ CON A=1
+                 */
+                if (Num.matches("[1][0][0][0][0][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(5, 7));
+                }
+
+                /**
+                 * de la forma A.000.XY0 CON A=1
+                 */
+                if (Num.matches("[1][0][0][0][1-9][1-9][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(4, 7));
+                }
+                /**
+                 * de la forma A.000.0Y0 CON A=1
+                 */
+                if (Num.matches("[1][0][0][0][0][1-9][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(5, 7));
+                }
+
+                /**
+                 * de la forma A.000.XYZ CON A=1
+                 */
+                if (Num.matches("[1][0][0][0][1-9][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(4, 7));
+                }
+                /**
+                 * de la forma A.000.X0Z CON A=1
+                 */
+                if (Num.matches("[1][0][0][0][1-9][0][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(4, 7));
+                }
+
+                /**
+                 * de la forma A.000.X00 CON A=1
+                 */
+                if (Num.matches("[1][0][0][0][1-9][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(4, 7));
+                }
+/////************************************************************************************************************       
+
+                /**
+                 * de la forma A.00E.000 CON A=1
+                 */
+                if (Num.matches("[1][0][0][1-9][0][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(3));
+                }
+
+                /**
+                 * de la forma A.00E.00Z CON A=1
+                 */
+                if (Num.matches("[1][0][0][1-9][0][0][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(3));
+                }
+                /**
+                 * de la forma A.00E.0YZ CON A=1
+                 */
+                if (Num.matches("[1][0][0][1-9][0][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(3));
+                }
+                /**
+                 * de la forma A.00E.XYZ CON A=1
+                 */
+                if (Num.matches("[1][0][0][1-9][1-9][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(3));
+                }
+
+                /**
+                 * de la forma A.00E.XY0 CON A=1
+                 */
+                if (Num.matches("[1][0][0][1-9][1-9][1-9][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(3));
+                }
+                /**
+                 * de la forma A.00E.0Y0 CON A=1
+                 */
+                if (Num.matches("[1][0][0][1-9][0][1-9][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(3));
+                }
+
+                /**
+                 * de la forma A.00E.X00 CON A=1
+                 */
+                if (Num.matches("[1][0][0][1-9][1-9][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(3));
+                }
+
+                /**
+                 * de la forma A.00E.X0Z CON A=1
+                 */
+                if (Num.matches("[1][0][0][1-9][1-9][0][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(3));
+                }
+/////************************************************************************************************************                    
+
+                /**
+                 * de la forma A.0DE.000 CON A=1
+                 */
+                if (Num.matches("[1][0][1-9][1-9][0][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(2));
+                }
+                /**
+                 * de la forma A.0DE.00Z CON A=1
+                 */
+                if (Num.matches("[1][0][1-9][1-9][0][0][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(2));
+                }
+
+                /**
+                 * de la forma A.0DE.0YZ CON A=1
+                 */
+                if (Num.matches("[1][0][1-9][1-9][0][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(2));
+                }
+
+                /**
+                 * de la forma A.0DE.0Y0 CON A=1
+                 */
+                if (Num.matches("[1][0][1-9][1-9][0][1-9][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(2));
+                }
+
+                /**
+                 * de la forma A.0DE.XY0 CON A=1
+                 */
+                if (Num.matches("[1][0][1-9][1-9][1-9][1-9][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(2));
+                }
+                /**
+                 * de la forma A.0DE.XYZ CON A=1
+                 */
+                if (Num.matches("[1][0][1-9][1-9][1-9][1-9][1-9]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(2));
+                }
+                /**
+                 * de la forma A.0DE.X00 CON A=1
+                 */
+                if (Num.matches("[1][0][1-9][1-9][1-9][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(2));
+                }
+
+/////************************************************************************************************************                    
+                /**
+                 * de la forma A.0D0.X00 CON A=1
+                 */
+                if (Num.matches("[1][0][1-9][0][0][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLON " + getNum(Num.substring(2));
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+/////************************************************************************************************************                    
+                /**
+                 * de la forma A.000.000 CON A>1
+                 */
+                if (Num.matches("[2-9][0][0][0][0][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " MILLONES";
+                }
+
         }
         return word;
     }
@@ -176,9 +560,14 @@ public class NumToLetra {
         try {
             PrintWriter pf = new PrintWriter("d:\\salida.txt");
             NumToLetra num = new NumToLetra();
-            for (int i = 101100; i < 200000; i++) {
-                //System.out.println(i + " - " + num.Letras(String.valueOf(i)));
-                pf.append(i + " - " + num.Letras(String.valueOf(i)) + "\n");
+//            String aux = "1000021";
+//            System.out.println(aux + " - " + num.Letras(String.valueOf(aux)));
+            for (int i = 1009999; i < 1020000; i++) {
+
+                String v = num.Letras(String.valueOf(i));
+//                if (v.length() != 0) {
+                pf.append(i + " - " + v + "\n");
+//                }
 
             }
             pf.close();
@@ -217,6 +606,15 @@ public class NumToLetra {
         if (pos != -1) {
             aux = aux.replace("NUEVECIENTOS", "NOVECIENTOS");
         }
+        pos = aux.indexOf("UNO MILLON ");
+        if (pos != -1) {
+            aux = aux.replace("UNO MILLON ", "UN MILLON ");
+        }
+        pos = aux.indexOf("UNO MILLON");
+        if (pos != -1) {
+            aux = aux.replace("UNO MILLON", "UN MILLON");
+        }
+
         return aux;
     }
 
