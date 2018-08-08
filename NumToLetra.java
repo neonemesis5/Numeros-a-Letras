@@ -354,54 +354,62 @@ public class NumToLetra {
                 }
             case 7:
 
-                /**1
+                /**
+                 * 1
                  * de la forma A.000.000 CON A=1
                  */
                 if (Num.matches("[1-9][0][0][0][0][0][0]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES";
                 }
 
-                /**2
+                /**
+                 * 2
                  * de la forma A.000.00Z CON A=1
                  */
                 if (Num.matches("[1-9][0][0][0][0][0][1-9]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES " + getNum(Num.substring(6, 7));
                 }
 
-                /**3
+                /**
+                 * 3
                  * de la forma A.000.0YZ CON A=1
                  */
                 if (Num.matches("[1-9][0][0][0][0][1-9][1-9]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES " + getNum(Num.substring(5, 7));
                 }
 
-                /**4
+                /**
+                 * 4
                  * de la forma A.000.XY0 CON A=1
                  */
                 if (Num.matches("[1-9][0][0][0][1-9][1-9][0]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES " + getNum(Num.substring(4, 7));
                 }
-                /**5
+                /**
+                 * 5
                  * de la forma A.000.0Y0 CON A=1
                  */
                 if (Num.matches("[1-9][0][0][0][0][1-9][0]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES " + getNum(Num.substring(5, 7));
                 }
 
-                /**6
+                /**
+                 * 6
                  * de la forma A.000.XYZ CON A=1
                  */
                 if (Num.matches("[1-9][0][0][0][1-9][1-9][1-9]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES " + getNum(Num.substring(4, 7));
                 }
-                /**7
+                /**
+                 * 7
                  * de la forma A.000.X0Z CON A=1
                  */
                 if (Num.matches("[1-9][0][0][0][1-9][0][1-9]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES " + getNum(Num.substring(4, 7));
                 }
 
-                /**8
+                /**
+                 * 8
                  * de la forma A.000.X00 CON A=1
                  */
                 if (Num.matches("[1-9][0][0][0][1-9][0][0]")) {//
@@ -825,7 +833,7 @@ public class NumToLetra {
                 if (Num.matches("[1-9][1-9][1-9][1-9][1-9][1-9][0]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES " + getNum(Num.substring(1));
                 }
-                
+
                 /**
                  * 8
                  * de la forma A.010.000 CON A=1
@@ -833,7 +841,7 @@ public class NumToLetra {
                 if (Num.matches("[1-9][1-9][1-9][1-9][1-9][1-9][1-9]")) {//
                     return getNum(Num.substring(0, 1)) + " MILLONES " + getNum(Num.substring(1));
                 }
-                                
+
             case 8://<100.000.000
                 /**
                  * 1
@@ -842,49 +850,55 @@ public class NumToLetra {
                 if (Num.matches("[1-9][0-9][0][0][0][0][0][0]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES";
                 }
-                
-                
-                /**2
+
+                /**
+                 * 2
                  * de la forma A.000.00Z CON A=1
                  */
                 if (Num.matches("[1-9][0-9][0][0][0][0][0][1-9]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES " + getNum(Num.substring(7));
                 }
 
-                /**3
+                /**
+                 * 3
                  * de la forma A.000.0YZ CON A=1
                  */
                 if (Num.matches("[1-9][0-9][0][0][0][0][1-9][1-9]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES " + getNum(Num.substring(6));
                 }
 
-                /**4
+                /**
+                 * 4
                  * de la forma A.000.XY0 CON A=1
                  */
                 if (Num.matches("[1-9][0-9][0][0][0][1-9][1-9][0]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES " + getNum(Num.substring(5));
                 }
-                /**5
+                /**
+                 * 5
                  * de la forma A.000.0Y0 CON A=1
                  */
                 if (Num.matches("[1-9][0-9][0][0][0][0][1-9][0]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES " + getNum(Num.substring(6));
                 }
 //
-                /**6
+                /**
+                 * 6
                  * de la forma A.000.XYZ CON A=1
                  */
                 if (Num.matches("[1-9][0-9][0][0][0][1-9][1-9][1-9]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES " + getNum(Num.substring(5));
                 }
-                /**7
+                /**
+                 * 7
                  * de la forma A.000.X0Z CON A=1
                  */
                 if (Num.matches("[1-9][0-9][0][0][0][1-9][0][1-9]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES " + getNum(Num.substring(5));
                 }
 //
-                /**8
+                /**
+                 * 8
                  * de la forma A.000.X00 CON A=1
                  */
                 if (Num.matches("[1-9][0-9][0][0][0][1-9][0][0]")) {//
@@ -1308,7 +1322,7 @@ public class NumToLetra {
                 if (Num.matches("[1-9][0-9][1-9][1-9][1-9][1-9][1-9][0]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES " + getNum(Num.substring(2));
                 }
-//                
+
                 /**
                  * 8
                  * de la forma A.010.000 CON A=1
@@ -1316,25 +1330,55 @@ public class NumToLetra {
                 if (Num.matches("[1-9][0-9][1-9][1-9][1-9][1-9][1-9][1-9]")) {//
                     return getNum(Num.substring(0, 2)) + " MILLONES " + getNum(Num.substring(2));
                 }
-//                      
+            case 9://DE LA FORMA ABC.DEF.GHI.XYZ
+                if (Num.matches("[1-9][0-9][0-9][0][0][0][0][0][0]")) {//
+                    return getNum(Num.substring(0, 3)) + " MILLONES";
+                }
+                String SupParte = getNum(Num.substring(0, 3)) + " MILLONES"; //extrayendo ABC.
+                //ahora fraccionamos el numero DEF.GHI.XYZ
+//                String subParte = Num.substring(3);//debe quedar un numero de 6 digitos{
+                NumLengthValue subParte = new NumLengthValue(6, Num.substring(3), false);//primera medida de long 6
+                for (int i = 0; subParte.longitud > 0; i++) {
+                    subParte = getValue(subParte.value);
+                    
+                    if (subParte.enc) {
+                        break;
+                    }
+                    
+                }
+                if (subParte != null) {
+                    return SupParte + " " + getNum(subParte.value);
+                }
         }
         return word;
+    }
+
+    private NumLengthValue getValue(String v) {
+        NumLengthValue aux=null;
+        if (v.charAt(0) != '0') {//encontro la long q tiene
+            return new NumLengthValue(v.length(), v, true);
+        } else {
+            if (v.length() > 0) {
+                aux=getValue(v.substring(1));
+            }
+        }
+        return aux;
     }
 
     public static void main(String[] args) {
         try {
             PrintWriter pf = new PrintWriter("d:\\salida.txt");
             NumToLetra num = new NumToLetra();
-//            String aux = "1000021";
-//            System.out.println(aux + " - " + num.Letras(String.valueOf(aux)));
-            for (int i = 19999999; i < 21000000; i++) {
+            String aux = "115120000";
+            System.out.println(aux + " - " + num.Letras(String.valueOf(aux)));
+//            for (int i = 19999999; i < 21000000; i++) {
 
-                String v = num.Letras(String.valueOf(i));
-               // if (v.length() != 0) {
-                pf.append(i + " - " + v + "\n");
-               // }
-
-            }
+//                String v = num.Letras(String.valueOf(i));
+//               // if (v.length() != 0) {
+//                pf.append(i + " - " + v + "\n");
+//               // }
+//
+//            }
             pf.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -1379,9 +1423,10 @@ public class NumToLetra {
         if (pos != -1) {
             aux = aux.replace("UNO MILLON", "UN MILLON");
         }
-        if(value.length()==7){
-            if(value.charAt(0)=='1')
-                aux=aux.replace("MILLONES", "MILLON");
+        if (value.length() == 7) {
+            if (value.charAt(0) == '1') {
+                aux = aux.replace("MILLONES", "MILLON");
+            }
         }
 
         return aux;
@@ -1396,6 +1441,20 @@ public class NumToLetra {
             }
         }
         return -1;
+    }
+
+    class NumLengthValue {
+
+        int longitud;
+        String value;
+        boolean enc = false;
+
+        public NumLengthValue(int longitud, String value, boolean enc) {
+            this.longitud = longitud;
+            this.value = value;
+            this.enc = enc;
+        }
+
     }
 }
 
