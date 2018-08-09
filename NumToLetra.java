@@ -1,3 +1,5 @@
+package UTILS;
+
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,9 +15,10 @@ import java.util.ArrayList;
  */
 public class NumToLetra {
 
+    
+    
     private ArrayList<Numero> Numeros = new ArrayList<Numero>() {
         {
-//            add(new Numero(0, "CERO"));
             add(new Numero(1, "UN"));
             add(new Numero(1, "UNO"));
             add(new Numero(2, "DOS"));
@@ -47,8 +50,6 @@ public class NumToLetra {
             add(new Numero(100, "CIEN"));
         }
     };
-
-    private String MilTex[] = new String[]{"MIL", "MILLONES"};
 
     private String getNum(String Num) {
         String word = "";
@@ -212,6 +213,40 @@ public class NumToLetra {
                 if (subParte != null) {
                     return SupParte + " " + getNum(subParte.value);
                 }
+            case 10:
+                //Según explica el Diccionario panhispánico de dudas, el billion del inglés americano equivale en español a mil millones o un millardo, denominación menos utilizada, y no a un billón, que corresponde a un millón de millones.11 mar. 2011
+                //el «billion» inglés no equivale al «billón» español | Fundéu BBVA
+                //https://www.fundeu.es/recomendacion/elbillion-inglesno-equivaleal-billon-espanol-858/
+
+                if (Num.matches("[1-9][0][0][0][0][0][0][0][0][0]")) {//
+                    return getNum(Num.substring(0, 1)) + " BILLONES";
+                }
+                String SupParte10 = getNum(Num.substring(0, 1)) + " BILLONES"; //extrayendo ABC.
+                NumLengthValue subParte10 = new NumLengthValue(9, Num.substring(1), false);//primera medida de long 6
+                while (subParte10.longitud > 0) {
+                    subParte10 = getValue(subParte10.value);
+                    if (subParte10.enc) {
+                        break;
+                    }
+                }
+                if (subParte10 != null) {
+                    return SupParte10 + " " + getNum(subParte10.value);
+                }
+            case 11://este funciona por conjetura pues no se pudo probar con Integer ni con Long
+                if (Num.matches("[1-9][0-9][0][0][0][0][0][0][0][0][0]")) {//
+                    return getNum(Num.substring(0, 2)) + " BILLONES";
+                }
+                String SupParte11 = getNum(Num.substring(0, 2)) + " BILLONES"; //extrayendo ABC.
+                NumLengthValue subParte11 = new NumLengthValue(10, Num.substring(1), false);//primera medida de long 6
+                while (subParte11.longitud > 0) {
+                    subParte11 = getValue(subParte11.value);
+                    if (subParte11.enc) {
+                        break;
+                    }
+                }
+                if (subParte11 != null) {
+                    return SupParte11 + " " + getNum(subParte11.value);
+                }
         }
         return word;
     }
@@ -221,14 +256,14 @@ public class NumToLetra {
             PrintWriter pf = new PrintWriter("d:\\salida.txt");
             NumToLetra num = new NumToLetra();
 //            String aux = "123456";
-//            System.out.println(aux + " - " + num.Letras(String.valueOf(aux)));
-            for (int i = 99999999; i < 1000000000; i+=100000) {
+//            System.out.println(aux + " - " + num.getNumTOLetras(String.valueOf(aux)));
+            for (long i = 1000000000; i < 1000000010; i++) {
 
-                String v = num.Letras(String.valueOf(i));
-               // if (v.length() != 0) {
+                String v = num.getNumTOLetras(String.valueOf(i));
+                // if (v.length() != 0) {
                 //pf.append(i + " - " + v + "\n");
-                System.out.println(i + " - " + v );
-               // }
+                System.out.println(i + " - " + v);
+                // }
 
             }
             pf.close();
@@ -249,7 +284,7 @@ public class NumToLetra {
         return aux;
     }
 
-    public String Letras(String value) {
+    public String getNumTOLetras(String value) {
         String aux = getNum(value);
         int pos = aux.indexOf("VEINTE Y ");
         if (pos != -1) {
@@ -287,6 +322,15 @@ public class NumToLetra {
         if (pos != -1) {
             aux = aux.replace("UNO MILLON", "UN MILLON");
         }
+        pos = aux.indexOf("UNO BILLONES ");
+        if (pos != -1) {
+            aux = aux.replace("UNO BILLONES ", "UN BILLON ");
+        }
+        pos = aux.indexOf("UNO BILLONES");
+        if (pos != -1) {
+            aux = aux.replace("UNO BILLONES", "UN BILLON");
+        }
+
         if (value.length() == 7) {
             if (value.charAt(0) == '1') {
                 aux = aux.replace("MILLONES", "MILLON");
